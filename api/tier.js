@@ -60,24 +60,27 @@ var THEMES = {
     bg: "#0D1117",
     border: "#30363D",
     title: "#E6EDF3",
-    text: "#E6EDF3",
+    text: "#C9D1D9",
     subtitle: "#8B949E",
+    icon: "#58A6FF",
     barBg: "#21262D"
   },
   tokyonight: {
     bg: "#1A1B27",
     border: "#414868",
     title: "#70A5FD",
-    text: "#A9B1D6",
-    subtitle: "#565F89",
-    barBg: "#24283B"
+    text: "#C0CAF5",
+    subtitle: "#7982A9",
+    icon: "#BB9AF7",
+    barBg: "#292E42"
   },
   dracula: {
     bg: "#282A36",
     border: "#6272A4",
     title: "#FF79C6",
     text: "#F8F8F2",
-    subtitle: "#6272A4",
+    subtitle: "#8390BF",
+    icon: "#BD93F9",
     barBg: "#44475A"
   },
   nord: {
@@ -85,7 +88,8 @@ var THEMES = {
     border: "#4C566A",
     title: "#88C0D0",
     text: "#ECEFF4",
-    subtitle: "#4C566A",
+    subtitle: "#7B88A1",
+    icon: "#81A1C1",
     barBg: "#3B4252"
   },
   gruvbox: {
@@ -93,40 +97,45 @@ var THEMES = {
     border: "#504945",
     title: "#FABD2F",
     text: "#EBDBB2",
-    subtitle: "#928374",
+    subtitle: "#A89984",
+    icon: "#FE8019",
     barBg: "#3C3836"
   },
   catppuccin: {
     bg: "#1E1E2E",
-    border: "#45475A",
+    border: "#585B70",
     title: "#CBA6F7",
     text: "#CDD6F4",
-    subtitle: "#6C7086",
-    barBg: "#313244"
+    subtitle: "#9399B2",
+    icon: "#F5C2E7",
+    barBg: "#363A4F"
   },
   onedark: {
     bg: "#282C34",
     border: "#4B5263",
     title: "#61AFEF",
     text: "#ABB2BF",
-    subtitle: "#5C6370",
-    barBg: "#2C313C"
+    subtitle: "#7F848E",
+    icon: "#C678DD",
+    barBg: "#333842"
   },
   radical: {
     bg: "#141321",
     border: "#FE428E",
     title: "#FE428E",
     text: "#A9FEF7",
-    subtitle: "#F8D847",
-    barBg: "#1A1831"
+    subtitle: "#C3BFED",
+    icon: "#F8D847",
+    barBg: "#212040"
   },
   light: {
     bg: "#FFFFFF",
     border: "#D0D7DE",
     title: "#24292F",
     text: "#24292F",
-    subtitle: "#57606A",
-    barBg: "#EFF1F3"
+    subtitle: "#656D76",
+    icon: "#0969DA",
+    barBg: "#E8ECF0"
   }
 };
 var DEFAULT_THEME = "dark";
@@ -695,7 +704,8 @@ var LABEL_WIDTH = 88;
 var RAW_VALUE_WIDTH = 50;
 var SCORE_WIDTH = 30;
 function formatNumber(n) {
-  if (n >= 1e3) return `${(n / 1e3).toFixed(1)}k`;
+  if (n >= 1e4) return `${Math.round(n / 1e3)}k`;
+  if (n >= 950) return `${(n / 1e3).toFixed(1)}k`;
   return String(n);
 }
 function renderStatBars(breakdown, stats, totalWidth, theme, gradientId) {
@@ -711,14 +721,14 @@ function renderStatBars(breakdown, stats, totalWidth, theme, gradientId) {
     const icon = STAT_ICONS[key] ?? "";
     return `
       <g transform="translate(0, ${y})">
-        <svg x="0" y="${iconY}" width="${ICON_SIZE}" height="${ICON_SIZE}" viewBox="0 0 16 16" fill="${theme.subtitle}">
+        <svg x="0" y="${iconY}" width="${ICON_SIZE}" height="${ICON_SIZE}" viewBox="0 0 16 16" fill="${theme.icon}">
           ${icon}
         </svg>
-        <text x="${ICON_SIZE + ICON_GAP}" y="${cy}" dominant-baseline="central" font-size="11" fill="${theme.subtitle}">${label}</text>
+        <text x="${ICON_SIZE + ICON_GAP}" y="${cy}" dominant-baseline="central" font-size="11" fill="${theme.text}">${label}</text>
         <rect x="${LABEL_WIDTH}" y="${barY}" width="${barWidth}" height="${BAR_HEIGHT}" rx="4" fill="${theme.barBg}"/>
         <rect x="${LABEL_WIDTH}" y="${barY}" width="${filled}" height="${BAR_HEIGHT}" rx="4" fill="url(#${gradientId})" opacity="0.85"/>
         <text x="${LABEL_WIDTH + barWidth + 6}" y="${cy}" dominant-baseline="central" font-size="10" fill="${theme.subtitle}">${formatNumber(rawValue)}</text>
-        <text x="${totalWidth}" y="${cy}" dominant-baseline="central" text-anchor="end" font-size="10" font-weight="700" fill="${theme.text}">${score}</text>
+        <text x="${totalWidth}" y="${cy}" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="${theme.icon}">${score} <tspan fill="${theme.subtitle}" font-weight="400" font-size="7">/ 100</tspan></text>
       </g>
     `;
   }).join("");
