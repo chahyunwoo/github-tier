@@ -1,0 +1,67 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the details below.
+
+  - type: input
+    id: username
+    attributes:
+      label: GitHub Username
+      description: The username you used in the API call
+      placeholder: "e.g. chahyunwoo"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - dark (default)
+        - tokyonight
+        - dracula
+        - nord
+        - gruvbox
+        - catppuccin
+        - onedark
+        - radical
+        - light
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear description of what went wrong
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the issue
+
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment
+      description: Are you using the public instance or self-hosted?
+      options:
+        - Public (github-tier.vercel.app)
+        - Self-hosted
+    validations:
+      required: true
