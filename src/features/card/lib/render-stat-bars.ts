@@ -19,7 +19,8 @@ const RAW_VALUE_WIDTH = 50;
 const SCORE_WIDTH = 30;
 
 function formatNumber(n: number): string {
-  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  if (n >= 10000) return `${Math.round(n / 1000)}k`;
+  if (n >= 950) return `${(n / 1000).toFixed(1)}k`;
   return String(n);
 }
 
@@ -44,14 +45,14 @@ export function renderStatBars(
 
     return `
       <g transform="translate(0, ${y})">
-        <svg x="0" y="${iconY}" width="${ICON_SIZE}" height="${ICON_SIZE}" viewBox="0 0 16 16" fill="${theme.subtitle}">
+        <svg x="0" y="${iconY}" width="${ICON_SIZE}" height="${ICON_SIZE}" viewBox="0 0 16 16" fill="${theme.icon}">
           ${icon}
         </svg>
-        <text x="${ICON_SIZE + ICON_GAP}" y="${cy}" dominant-baseline="central" font-size="11" fill="${theme.subtitle}">${label}</text>
+        <text x="${ICON_SIZE + ICON_GAP}" y="${cy}" dominant-baseline="central" font-size="11" fill="${theme.text}">${label}</text>
         <rect x="${LABEL_WIDTH}" y="${barY}" width="${barWidth}" height="${BAR_HEIGHT}" rx="4" fill="${theme.barBg}"/>
         <rect x="${LABEL_WIDTH}" y="${barY}" width="${filled}" height="${BAR_HEIGHT}" rx="4" fill="url(#${gradientId})" opacity="0.85"/>
         <text x="${LABEL_WIDTH + barWidth + 6}" y="${cy}" dominant-baseline="central" font-size="10" fill="${theme.subtitle}">${formatNumber(rawValue)}</text>
-        <text x="${totalWidth}" y="${cy}" dominant-baseline="central" text-anchor="end" font-size="10" font-weight="700" fill="${theme.text}">${score}</text>
+        <text x="${totalWidth}" y="${cy}" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="${theme.icon}">${score} <tspan fill="${theme.subtitle}" font-weight="400" font-size="7">/ 100</tspan></text>
       </g>
     `;
   }).join("");

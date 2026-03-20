@@ -4,5 +4,6 @@ export interface Theme {
   title: string;
   text: string;
   subtitle: string;
+  icon: string;
   barBg: string;
 }
