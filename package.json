@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3333",
-    "build": "next build",
-    "start": "next start"
+    "dev": "tsx watch --env-file=.env.local src/index.ts",
+    "build": "vercel build",
+    "start": "tsx src/index.ts"
   },
   "dependencies": {
-    "@types/node": "^25.5.0",
-    "@types/react": "^19.2.14",
-    "next": "^16.2.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "typescript": "^5.9.3"
+    "@hono/node-server": "^1.19.11",
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.0",
+    "vercel": "^41.0.0"
   }
 }
