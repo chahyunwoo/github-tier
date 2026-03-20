@@ -22,7 +22,7 @@
 ---
 
 <div align="center">
-  <img src="https://github-tier.vercel.app/api/tier?user=chahyunwoo" alt="demo" />
+  <img src="https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=2" alt="demo" />
 </div>
 
 <br/>
