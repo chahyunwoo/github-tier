@@ -174,6 +174,8 @@ You'll need a GitHub PAT to fetch contribution data (including private repos). C
 <details>
 <summary><b>Fine-grained Token</b></summary>
 
+> ⚠️ Fine-grained tokens have limited GraphQL API support. **Private contributions may not be included.** For full functionality, use a Classic token.
+
 1. Go to **Settings** → **Developer Settings** → **Personal access tokens** → **[Fine-grained tokens](https://github.com/settings/personal-access-tokens/new)**
 2. Set an expiration date
 3. Select **All repositories**
@@ -217,11 +219,14 @@ open http://localhost:3333/api/tier?user=YOUR_USERNAME
 
 ### ⚙️ Environment Variables
 
-| Name | Description | Required |
-|------|-------------|----------|
-| `GITHUB_TOKEN` | GitHub Personal Access Token with `read:user` scope. Required for private contribution data and higher API rate limits. | Yes |
+| Name | Description | Default | Required |
+|------|-------------|---------|----------|
+| `GITHUB_TOKEN` | GitHub Personal Access Token with `read:user` scope. Required for private contributions and higher rate limits. | — | Yes |
+| `CACHE_SECONDS` | Cache duration in seconds for generated cards. Set to `0` to disable caching. | `3600` (1 hour) | No |
 
 > 💡 Without a token, the API falls back to public data only and is subject to GitHub's unauthenticated rate limit (60 requests/hour).
+>
+> ⚠️ Remember to **redeploy** after changing environment variables for changes to take effect.
 
 ### 📌 Quick Tip: Combine with Other Cards
 

@@ -25,7 +25,8 @@ __export(entry_edge_exports, {
 module.exports = __toCommonJS(entry_edge_exports);
 
 // src/shared/constants/api.ts
-var CACHE_TTL = 3600;
+var DEFAULT_CACHE_TTL = 3600;
+var CACHE_TTL = Number(process.env.CACHE_SECONDS) || DEFAULT_CACHE_TTL;
 
 // src/shared/constants/card.ts
 var CARD_WIDTH = 450;
