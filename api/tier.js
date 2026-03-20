@@ -2763,8 +2763,11 @@ async function tierHandler(c) {
 }
 
 // src/app.ts
-var app = new Hono2().basePath("/api");
+var app = new Hono2();
+app.get("/api/tier", tierHandler);
 app.get("/tier", tierHandler);
+app.get("/", tierHandler);
+app.all("*", tierHandler);
 
 // src/entry-edge.ts
 var config = {
