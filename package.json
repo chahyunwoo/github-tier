@@ -14,12 +14,13 @@
     "hono": "^4.7.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.9.0",
-    "vercel": "^41.0.0"
+    "typescript": "^5.9.0"
   }
 }

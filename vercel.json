@@ -1,3 +1,7 @@
 {
-  "buildCommand": ""
+  "functions": {
+    "api/tier.js": {
+      "maxDuration": 30
+    }
+  }
 }
