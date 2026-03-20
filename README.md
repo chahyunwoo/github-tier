@@ -353,6 +353,10 @@ Contributions are welcome! Here's how you can help:
 
 Please open an issue first to discuss what you would like to change.
 
+## 💡 Inspired by
+
+- [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) — The scoring methodology and CDF-based percentile calculation were heavily inspired by this project.
+
 ## 📝 License
 
 [MIT](LICENSE) - Made with ❤️ by [Cha Hyun Woo](https://github.com/chahyunwoo)
