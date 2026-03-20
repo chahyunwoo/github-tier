@@ -66,7 +66,7 @@ export const THEMES: Record<string, Theme> = {
   },
   radical: {
     bg: "#141321",
-    border: "#FE428E",
+    border: "#2D2B55",
     title: "#FE428E",
     text: "#A9FEF7",
     subtitle: "#C3BFED",
