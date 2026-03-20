@@ -149,11 +149,17 @@ score = weighted_sum(
 
 ## 🚀 Deploy Your Own (Recommended)
 
-Since the public endpoint shares API rate limits across all users, we recommend self-hosting for reliability. You can choose between **Vercel deployment** (easiest) or **local development**.
+The public instance (`github-tier.vercel.app`) works for everyone, but GitHub's API allows only **5,000 requests/hour** per token. As more people use the public endpoint, you may occasionally see slower responses or rate limit errors.
+
+By deploying your own instance, you get:
+- 🔒 **Your own API rate limit** — no sharing with other users
+- ⚡ **Faster responses** — dedicated instance with no queue
+- 🔐 **Full control** — your own token, your own caching
+- 📊 **Private contributions** — guaranteed private repo data
 
 ### 🔑 Step 1: Get Your Personal Access Token (PAT)
 
-You'll need a GitHub PAT to fetch contribution data (including private repos).
+You'll need a GitHub PAT to fetch contribution data (including private repos). Choose one of the two token types:
 
 <details>
 <summary><b>Classic Token</b></summary>
@@ -229,6 +235,48 @@ You can align GitHub Tier with other profile cards side by side:
   <img height="200" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
 </a>
 ```
+
+### 🤖 Option C: GitHub Actions (Static SVG)
+
+Instead of a live API, you can generate a static SVG via GitHub Actions. This avoids API rate limits entirely.
+
+Create `.github/workflows/tier-card.yml` in your profile repo (`USERNAME/USERNAME`):
+
+```yaml
+name: Update Tier Card
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Daily at midnight
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate tier card
+        run: |
+          curl -s "https://github-tier.vercel.app/api/tier?user=${{ github.repository_owner }}" > profile/tier.svg
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          mkdir -p profile
+          git add profile/tier.svg
+          git commit -m "Update tier card" || exit 0
+          git push
+```
+
+Then embed in your profile README:
+
+```md
+![GitHub Tier](./profile/tier.svg)
+```
+
+> 💡 This updates daily. Use `workflow_dispatch` to trigger manually anytime.
 
 ## ❓ FAQ
 
