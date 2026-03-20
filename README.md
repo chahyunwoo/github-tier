@@ -62,9 +62,9 @@
 | 🔴 Challenger | 98+ | 0.01~0.05% | 👑 Crown |
 | 🟠 Grandmaster | 95-97 | 0.05~0.3% | 💎 Gem |
 | 🟣 Master | 90-94 | 0.3~1% | 🛡️ Shield |
-| 🔵 Diamond IV-I | 80-89 | 1~5% | ⭐⭐⭐⭐⭐ |
+| 💠 Diamond IV-I | 80-89 | 1~5% | ⭐⭐⭐⭐⭐ |
 | 🟢 Emerald IV-I | 65-79 | 5~15% | ⭐⭐⭐⭐ |
-| 🩵 Platinum IV-I | 50-64 | 15~30% | ⭐⭐⭐⭐ |
+| 🔷 Platinum IV-I | 50-64 | 15~30% | ⭐⭐⭐⭐ |
 | 🟡 Gold IV-I | 35-49 | 30~55% | ⭐⭐⭐ |
 | ⚪ Silver IV-I | 20-34 | 55~80% | ⭐⭐ |
 | 🟤 Bronze IV-I | 8-19 | 80~95% | ⭐ |
@@ -177,6 +177,31 @@ Your instance is live at:
 ```
 https://your-project.vercel.app/api/tier?user=USERNAME
 ```
+
+</details>
+
+<details>
+<summary><b>💻 Run locally</b></summary>
+
+```bash
+# Clone
+git clone https://github.com/chahyunwoo/github-tier.git
+cd github-tier
+
+# Install
+pnpm install
+
+# Set up token
+cp .env.example .env.local
+# Edit .env.local and add your GITHUB_TOKEN
+
+# Run dev server
+pnpm dev
+```
+
+Open `http://localhost:3333/api/tier?user=YOUR_USERNAME`
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full development guide.
 
 </details>
 
