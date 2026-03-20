@@ -58,5 +58,3 @@ export const TIER_THRESHOLDS: readonly TierThreshold[] = [
   { name: "Iron", division: "III", minScore: 2, color: "#5D6D7E", gradient: ["#3E4A56", "#5D6D7E"] },
   { name: "Iron", division: "IV", minScore: 0, color: "#5D6D7E", gradient: ["#3E4A56", "#5D6D7E"] },
 ] as const;
-
-export const CACHE_TTL = 3600;

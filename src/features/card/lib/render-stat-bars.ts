@@ -1,5 +1,4 @@
-import type { ScoreBreakdown } from "@/shared/types";
-import type { Theme } from "@/shared/constants/themes";
+import type { ScoreBreakdown, Theme } from "@/shared/types";
 
 const STAT_LABELS: { key: keyof Omit<ScoreBreakdown, "total">; label: string }[] = [
   { key: "commits", label: "Commits" },

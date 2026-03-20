@@ -6,6 +6,8 @@ export interface TierInfo {
   percentileRank: number;
   color: string;
   gradient: readonly [string, string];
+  isPremium: boolean;
+  isElite: boolean;
 }
 
 export interface ScoreBreakdown {

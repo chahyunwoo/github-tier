@@ -1,11 +1,4 @@
-export interface Theme {
-  bg: string;
-  border: string;
-  title: string;
-  text: string;
-  subtitle: string;
-  barBg: string;
-}
+import type { Theme } from "@/shared/types";
 
 export const THEMES: Record<string, Theme> = {
   dark: {

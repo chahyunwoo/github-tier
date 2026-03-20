@@ -6,10 +6,6 @@ export interface GitHubUserResponse {
   public_repos: number;
 }
 
-export interface GitHubSearchResponse {
-  total_count: number;
-}
-
 export interface GitHubRepoResponse {
   stargazers_count: number;
 }
