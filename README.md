@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github-tier.vercel.app/api/tier?user=chahyunwoo">View Demo</a>
+  <a href="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME">View Demo</a>
   &middot;
   <a href="https://github.com/chahyunwoo/github-tier/issues">Report Bug</a>
   &middot;
@@ -24,6 +24,8 @@
 <div align="center">
   <img src="https://github-tier.vercel.app/api/tier?user=chahyunwoo" alt="demo" />
 </div>
+
+<br/>
 
 ## Quick Start
 
@@ -54,6 +56,31 @@
 
 Diamond+ tiers feature premium border glow effects. Master+ tiers use an elite emblem design.
 
+### Examples
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/examples/challenger.svg" width="400"/><br/><b>Challenger</b></td>
+    <td align="center"><img src="assets/examples/grandmaster.svg" width="400"/><br/><b>Grandmaster</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/examples/master.svg" width="400"/><br/><b>Master</b></td>
+    <td align="center"><img src="assets/examples/diamond.svg" width="400"/><br/><b>Diamond</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/examples/emerald.svg" width="400"/><br/><b>Emerald</b></td>
+    <td align="center"><img src="assets/examples/platinum.svg" width="400"/><br/><b>Platinum</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/examples/gold.svg" width="400"/><br/><b>Gold</b></td>
+    <td align="center"><img src="assets/examples/silver.svg" width="400"/><br/><b>Silver</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/examples/bronze.svg" width="400"/><br/><b>Bronze</b></td>
+    <td align="center"><img src="assets/examples/iron.svg" width="400"/><br/><b>Iron</b></td>
+  </tr>
+</table>
+
 ## Themes
 
 Add `&theme=THEME_NAME` to the URL.
@@ -66,6 +93,7 @@ Add `&theme=THEME_NAME` to the URL.
 | `nord` | ![nord](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=nord) |
 | `gruvbox` | ![gruvbox](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=gruvbox) |
 | `catppuccin` | ![catppuccin](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=catppuccin) |
+| `onedark` | ![onedark](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=onedark) |
 | `radical` | ![radical](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=radical) |
 | `light` | ![light](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=light) |
 
@@ -75,15 +103,15 @@ Your score is calculated using a **Log-Normal CDF** model, validated against 225
 
 ```
 score = weighted_sum(
-  commits   × 5,    // CDF median: 250
-  stars     × 3,    // CDF median: 3
-  prs       × 1,    // CDF median: 5
-  followers × 0.5,  // CDF median: 3
-  issues    × 0.5   // CDF median: 2
+  commits   x 5,    // CDF median: 250
+  stars     x 3,    // CDF median: 3
+  prs       x 1,    // CDF median: 5
+  followers x 0.5,  // CDF median: 3
+  issues    x 0.5   // CDF median: 2
 ) / total_weight
 ```
 
-- **CDF function**: `f(x) = x / (1 + x)` — smooth 0-100 score with diminishing returns
+- **CDF function**: `f(x) = x / (1 + x)` - smooth 0-100 score with diminishing returns
 - **Data source**: GitHub GraphQL API (includes private contributions)
 - **Refresh interval**: 1 hour (CDN cached)
 
@@ -124,6 +152,7 @@ Your instance is live at `https://your-project.vercel.app/api/tier?user=USERNAME
 - **Runtime**: [Hono](https://hono.dev) + Vercel Serverless Functions
 - **API**: GitHub GraphQL API + REST API
 - **Rendering**: Server-side SVG generation
+- **Testing**: Vitest (45 tests)
 - **Architecture**: Feature-Sliced Design (FSD)
 
 ## Contributing
