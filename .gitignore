@@ -5,4 +5,3 @@ node_modules/
 .env*.local
 CLAUDE.md
 .vercel
-api/tier.js
