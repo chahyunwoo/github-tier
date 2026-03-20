@@ -23,7 +23,7 @@
 ---
 
 <div align="center">
-  <img src="https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=2" alt="demo" width="450"/>
+  <img src="https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=2v=3" alt="demo" width="450"/>
   <br/>
   <sub>👆 This card updates automatically every hour</sub>
 </div>
