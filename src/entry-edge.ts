@@ -38,7 +38,7 @@ export default async function handler(req: Request) {
         "Cache-Control": `public, max-age=${CACHE_TTL}, s-maxage=${CACHE_TTL}`,
       },
     });
-  } catch {
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+  } catch (e) {
+    return Response.json({ error: String(e), stack: e instanceof Error ? e.stack : undefined }, { status: 500 });
   }
 }
