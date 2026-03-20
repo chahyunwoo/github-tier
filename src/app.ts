@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { tierHandler } from "./routes";
 
-export const app = new Hono();
+export const app = new Hono().basePath("/api");
 
-app.get("/api/tier", tierHandler);
+app.get("/tier", tierHandler);

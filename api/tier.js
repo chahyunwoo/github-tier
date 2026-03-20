@@ -2767,8 +2767,8 @@ async function tierHandler(c) {
 }
 
 // src/app.ts
-var app = new Hono2();
-app.get("/api/tier", tierHandler);
+var app = new Hono2().basePath("/api");
+app.get("/tier", tierHandler);
 
 // src/entry-edge.ts
 var config = {
