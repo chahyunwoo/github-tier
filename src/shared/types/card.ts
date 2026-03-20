@@ -1,4 +1,5 @@
-import type { GitHubStats, TierInfo, ScoreBreakdown } from "./tier";
+import type { GitHubStats } from "./github";
+import type { TierInfo, ScoreBreakdown } from "./tier";
 import type { Theme } from "./theme";
 
 export interface RenderOptions {

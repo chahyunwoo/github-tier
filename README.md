@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/chahyunwoo/github-tier/stargazers"><img src="https://img.shields.io/github/stars/chahyunwoo/github-tier?style=for-the-badge&color=F0B232" alt="Stars"/></a>
+  <a href="https://github.com/chahyunwoo/github-tier/actions"><img src="https://img.shields.io/github/actions/workflow/status/chahyunwoo/github-tier/ci.yml?style=for-the-badge&label=CI" alt="CI"/></a>
   <a href="https://github.com/chahyunwoo/github-tier/blob/main/LICENSE"><img src="https://img.shields.io/github/license/chahyunwoo/github-tier?style=for-the-badge" alt="License"/></a>
   <a href="https://github-tier.vercel.app"><img src="https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel" alt="Deploy"/></a>
 </p>
@@ -40,16 +41,16 @@
 
 | Tier | Score | Top % |
 |------|-------|-------|
-| Challenger | 98+ | 0.01% |
-| Grandmaster | 95-97 | 0.05% |
-| Master | 90-94 | 0.3% |
-| Diamond IV-I | 80-89 | 1-4% |
-| Emerald IV-I | 65-79 | 5-14% |
-| Platinum IV-I | 50-64 | 15-32% |
-| Gold IV-I | 35-49 | 32-55% |
-| Silver IV-I | 20-34 | 55-78% |
-| Bronze IV-I | 8-19 | 78-92% |
-| Iron IV-I | 0-7 | 92%+ |
+| Challenger | 98+ | 0.01~0.05% |
+| Grandmaster | 95-97 | 0.05~0.3% |
+| Master | 90-94 | 0.3~1% |
+| Diamond IV-I | 80-89 | 1~5% |
+| Emerald IV-I | 65-79 | 5~15% |
+| Platinum IV-I | 50-64 | 15~30% |
+| Gold IV-I | 35-49 | 30~55% |
+| Silver IV-I | 20-34 | 55~80% |
+| Bronze IV-I | 8-19 | 80~95% |
+| Iron IV-I | 0-7 | 95%+ |
 
 Diamond+ tiers feature premium border glow effects. Master+ tiers use an elite emblem design.
 
@@ -120,7 +121,7 @@ Your instance is live at `https://your-project.vercel.app/api/tier?user=USERNAME
 
 ## Tech Stack
 
-- **Runtime**: [Hono](https://hono.dev) on Vercel Edge Functions
+- **Runtime**: [Hono](https://hono.dev) + Vercel Serverless Functions
 - **API**: GitHub GraphQL API + REST API
 - **Rendering**: Server-side SVG generation
 - **Architecture**: Feature-Sliced Design (FSD)
