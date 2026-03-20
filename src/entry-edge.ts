@@ -4,7 +4,6 @@ import { renderTierCard } from "@/features/card/lib";
 import { fetchAvatarBase64, isValidGitHubUsername } from "@/shared/lib";
 import { CACHE_TTL, THEMES, DEFAULT_THEME } from "@/shared/constants";
 
-export const config = { runtime: "edge" };
 
 export default async function handler(req: Request) {
   try {
