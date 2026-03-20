@@ -44,7 +44,7 @@ export function renderStatBars(
     const icon = STAT_ICONS[key] ?? "";
 
     return `
-      <g transform="translate(0, ${y})">
+      <g transform="translate(0, ${y})" class="fade" style="animation-delay: ${0.4 + i * 0.1}s">
         <svg x="0" y="${iconY}" width="${ICON_SIZE}" height="${ICON_SIZE}" viewBox="0 0 16 16" fill="${theme.icon}">
           ${icon}
         </svg>

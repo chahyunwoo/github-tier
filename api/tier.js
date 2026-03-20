@@ -720,7 +720,7 @@ function renderStatBars(breakdown, stats, totalWidth, theme, gradientId) {
     const y = i * ROW_GAP;
     const icon = STAT_ICONS[key] ?? "";
     return `
-      <g transform="translate(0, ${y})">
+      <g transform="translate(0, ${y})" class="fade" style="animation-delay: ${0.4 + i * 0.1}s">
         <svg x="0" y="${iconY}" width="${ICON_SIZE}" height="${ICON_SIZE}" viewBox="0 0 16 16" fill="${theme.icon}">
           ${icon}
         </svg>
@@ -842,6 +842,23 @@ function renderTierCard({ stats, tier, breakdown, theme, avatarBase64 }) {
 
   <style>
     * { font-family: 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes barGrow {
+      from { width: 0; }
+    }
+    .fade { opacity: 0; animation: fadeIn 0.8s ease-in-out forwards; }
+    .slide { opacity: 0; animation: slideIn 0.5s ease-in-out forwards; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.35s; }
+    .d4 { animation-delay: 0.5s; }
   </style>
 
   <!-- Background -->
@@ -856,13 +873,13 @@ function renderTierCard({ stats, tier, breakdown, theme, avatarBase64 }) {
   ${tier.isPremium ? renderPremiumEffects(w, h, r, tier) : ""}
 
   <!-- Avatar -->
-  <g transform="translate(${p}, ${p})">
+  <g transform="translate(${p}, ${p})" class="fade d1">
     <image href="${avatarHref}" x="2" y="2" width="44" height="44" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
     <circle cx="24" cy="24" r="22" fill="none" stroke="${tier.color}" stroke-width="2" stroke-opacity="0.6"/>
   </g>
 
   <!-- User Info -->
-  <g>
+  <g class="fade d2">
     <text x="${nameX}" y="${p + 18}" font-size="15" font-weight="700" fill="${theme.title}">${safeName}</text>
     <text x="${nameX}" y="${p + 34}" font-size="11" fill="${theme.subtitle}">@${safeUsername}</text>
     <text x="${nameX}" y="${p + 50}" font-size="10" font-weight="600" fill="${tier.color}">Top ${tier.percentileRank}%</text>
@@ -870,7 +887,7 @@ function renderTierCard({ stats, tier, breakdown, theme, avatarBase64 }) {
   </g>
 
   <!-- Tier Emblem -->
-  <g transform="translate(${emblemX}, ${emblemY})">
+  <g transform="translate(${emblemX}, ${emblemY})" class="fade d2">
     ${renderTierEmblem(tier)}
   </g>
 

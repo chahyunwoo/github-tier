@@ -24,6 +24,23 @@
 
   <style>
     * { font-family: 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes barGrow {
+      from { width: 0; }
+    }
+    .fade { opacity: 0; animation: fadeIn 0.8s ease-in-out forwards; }
+    .slide { opacity: 0; animation: slideIn 0.5s ease-in-out forwards; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.35s; }
+    .d4 { animation-delay: 0.5s; }
   </style>
 
   <!-- Background -->
@@ -38,13 +55,13 @@
   
 
   <!-- Avatar -->
-  <g transform="translate(18, 18)">
+  <g transform="translate(18, 18)" class="fade d1">
     <image href="" x="2" y="2" width="44" height="44" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
     <circle cx="24" cy="24" r="22" fill="none" stroke="#2ECC71" stroke-width="2" stroke-opacity="0.6"/>
   </g>
 
   <!-- User Info -->
-  <g>
+  <g class="fade d2">
     <text x="80" y="36" font-size="15" font-weight="700" fill="#E6EDF3">GitHub User</text>
     <text x="80" y="52" font-size="11" fill="#8B949E">@username</text>
     <text x="80" y="68" font-size="10" font-weight="600" fill="#2ECC71">Top 11%</text>
@@ -52,7 +69,7 @@
   </g>
 
   <!-- Tier Emblem -->
-  <g transform="translate(368, 14)">
+  <g transform="translate(368, 14)" class="fade d2">
     
     <defs>
       <linearGradient id="hexGrad_Emerald" x1="0.2" y1="0" x2="0.8" y2="1">
@@ -106,7 +123,7 @@
   <!-- Stat Bars -->
   <g transform="translate(18, 108)">
     
-      <g transform="translate(0, 0)">
+      <g transform="translate(0, 0)" class="fade" style="animation-delay: 0.4s">
         <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
           <path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/>
         </svg>
@@ -117,7 +134,7 @@
         <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">70 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
       </g>
     
-      <g transform="translate(0, 26)">
+      <g transform="translate(0, 26)" class="fade" style="animation-delay: 0.5s">
         <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
           <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
         </svg>
@@ -128,7 +145,7 @@
         <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">63 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
       </g>
     
-      <g transform="translate(0, 52)">
+      <g transform="translate(0, 52)" class="fade" style="animation-delay: 0.6000000000000001s">
         <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
           <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354Z"/>
         </svg>
@@ -139,7 +156,7 @@
         <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">60 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
       </g>
     
-      <g transform="translate(0, 78)">
+      <g transform="translate(0, 78)" class="fade" style="animation-delay: 0.7000000000000001s">
         <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
           <path d="M10.561 8.073a6 6 0 0 1 3.32 5.17.75.75 0 1 1-1.497.076 4.5 4.5 0 0 0-7.37-3.11.75.75 0 0 1-.994-1.124A6 6 0 0 1 8 7.5a6 6 0 0 1 2.561.573ZM8 5.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 1.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/>
         </svg>
@@ -150,7 +167,7 @@
         <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">56 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
       </g>
     
-      <g transform="translate(0, 104)">
+      <g transform="translate(0, 104)" class="fade" style="animation-delay: 0.8s">
         <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
           <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"/>
         </svg>
