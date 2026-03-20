@@ -228,17 +228,35 @@ open http://localhost:3333/api/tier?user=YOUR_USERNAME
 >
 > ⚠️ Remember to **redeploy** after changing environment variables for changes to take effect.
 
-### 📌 Quick Tip: Combine with Other Cards
+### 📌 Quick Tips
 
-You can align GitHub Tier with other profile cards side by side:
+**Resize the card** using `width` or `height` attributes:
+
+```html
+<!-- Fixed width -->
+<img src="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME" width="450" />
+
+<!-- Fixed height (matches github-readme-stats) -->
+<img src="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME" height="195" />
+```
+
+**Combine with other profile cards** side by side:
 
 ```html
 <a href="https://github.com/chahyunwoo/github-tier">
-  <img height="200" src="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME" />
+  <img height="195" align="center" src="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME" />
 </a>
 <a href="https://github.com/anuraghazra/github-readme-stats">
-  <img height="200" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
+  <img height="195" align="center" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
 </a>
+```
+
+**Place on a separate line** for full visibility:
+
+```html
+<div align="center">
+  <img src="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME" width="450" />
+</div>
 ```
 
 ### 🤖 Option C: GitHub Actions (Static SVG)
