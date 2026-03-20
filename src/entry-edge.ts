@@ -1,37 +1,37 @@
+import type { IncomingMessage, ServerResponse } from "http";
 import { fetchGitHubStats } from "@/features/github/api";
 import { calculateScore, resolveTier } from "@/features/tier/lib";
 import { renderTierCard } from "@/features/card/lib";
 import { fetchAvatarBase64, isValidGitHubUsername } from "@/shared/lib";
 import { CACHE_TTL, THEMES, DEFAULT_THEME } from "@/shared/constants";
 
-
-export default async function handler(req: Request) {
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
   try {
-    const url = new URL(req.url);
+    const url = new URL(req.url ?? "/", `http://${req.headers.host}`);
     const username = url.searchParams.get("user");
     const themeName = url.searchParams.get("theme") ?? DEFAULT_THEME;
 
     if (!username) {
-      return new Response(JSON.stringify({ error: "Missing 'user' query parameter" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+      res.statusCode = 400;
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify({ error: "Missing 'user' query parameter" }));
+      return;
     }
 
     if (!isValidGitHubUsername(username)) {
-      return new Response(JSON.stringify({ error: "Invalid GitHub username" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+      res.statusCode = 400;
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify({ error: "Invalid GitHub username" }));
+      return;
     }
 
     const stats = await fetchGitHubStats(username);
 
     if (!stats) {
-      return new Response(JSON.stringify({ error: `User '${username}' not found` }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      });
+      res.statusCode = 404;
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify({ error: `User '${username}' not found` }));
+      return;
     }
 
     const theme = THEMES[themeName] ?? THEMES[DEFAULT_THEME];
@@ -40,16 +40,12 @@ export default async function handler(req: Request) {
     const avatarBase64 = await fetchAvatarBase64(stats.avatarUrl);
     const svg = renderTierCard({ stats, tier, breakdown, theme, avatarBase64 });
 
-    return new Response(svg, {
-      headers: {
-        "Content-Type": "image/svg+xml",
-        "Cache-Control": `public, max-age=${CACHE_TTL}, s-maxage=${CACHE_TTL}`,
-      },
-    });
+    res.setHeader("Content-Type", "image/svg+xml");
+    res.setHeader("Cache-Control", `public, max-age=${CACHE_TTL}, s-maxage=${CACHE_TTL}`);
+    res.end(svg);
   } catch (e) {
-    return new Response(JSON.stringify({ error: String(e) }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    res.statusCode = 500;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ error: String(e) }));
   }
 }
