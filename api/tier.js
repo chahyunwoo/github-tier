@@ -678,19 +678,28 @@ function renderTierCard({ stats, tier, breakdown, theme, avatarBase64 }) {
 // src/entry-edge.ts
 var config = { runtime: "edge" };
 async function handler(req) {
-  const url = new URL(req.url);
-  const username = url.searchParams.get("user");
-  const themeName = url.searchParams.get("theme") ?? DEFAULT_THEME;
-  if (!username) {
-    return Response.json({ error: "Missing 'user' query parameter" }, { status: 400 });
-  }
-  if (!isValidGitHubUsername(username)) {
-    return Response.json({ error: "Invalid GitHub username" }, { status: 400 });
-  }
   try {
+    const url = new URL(req.url);
+    const username = url.searchParams.get("user");
+    const themeName = url.searchParams.get("theme") ?? DEFAULT_THEME;
+    if (!username) {
+      return new Response(JSON.stringify({ error: "Missing 'user' query parameter" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+    if (!isValidGitHubUsername(username)) {
+      return new Response(JSON.stringify({ error: "Invalid GitHub username" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
     const stats = await fetchGitHubStats(username);
     if (!stats) {
-      return Response.json({ error: `User '${username}' not found` }, { status: 404 });
+      return new Response(JSON.stringify({ error: `User '${username}' not found` }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" }
+      });
     }
     const theme = THEMES[themeName] ?? THEMES[DEFAULT_THEME];
     const breakdown = calculateScore(stats);
@@ -704,7 +713,10 @@ async function handler(req) {
       }
     });
   } catch (e) {
-    return Response.json({ error: String(e), stack: e instanceof Error ? e.stack : void 0 }, { status: 500 });
+    return new Response(JSON.stringify({ error: String(e) }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
   }
 }
 export {

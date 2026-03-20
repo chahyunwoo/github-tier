@@ -7,23 +7,32 @@ import { CACHE_TTL, THEMES, DEFAULT_THEME } from "@/shared/constants";
 export const config = { runtime: "edge" };
 
 export default async function handler(req: Request) {
-  const url = new URL(req.url);
-  const username = url.searchParams.get("user");
-  const themeName = url.searchParams.get("theme") ?? DEFAULT_THEME;
-
-  if (!username) {
-    return Response.json({ error: "Missing 'user' query parameter" }, { status: 400 });
-  }
-
-  if (!isValidGitHubUsername(username)) {
-    return Response.json({ error: "Invalid GitHub username" }, { status: 400 });
-  }
-
   try {
+    const url = new URL(req.url);
+    const username = url.searchParams.get("user");
+    const themeName = url.searchParams.get("theme") ?? DEFAULT_THEME;
+
+    if (!username) {
+      return new Response(JSON.stringify({ error: "Missing 'user' query parameter" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    if (!isValidGitHubUsername(username)) {
+      return new Response(JSON.stringify({ error: "Invalid GitHub username" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const stats = await fetchGitHubStats(username);
 
     if (!stats) {
-      return Response.json({ error: `User '${username}' not found` }, { status: 404 });
+      return new Response(JSON.stringify({ error: `User '${username}' not found` }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     const theme = THEMES[themeName] ?? THEMES[DEFAULT_THEME];
@@ -39,6 +48,9 @@ export default async function handler(req: Request) {
       },
     });
   } catch (e) {
-    return Response.json({ error: String(e), stack: e instanceof Error ? e.stack : undefined }, { status: 500 });
+    return new Response(JSON.stringify({ error: String(e) }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
