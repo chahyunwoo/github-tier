@@ -1,1 +1,220 @@
-404 Not Found
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="450" height="260" viewBox="0 0 450 260" fill="none">
+  <defs>
+    <linearGradient id="tierGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF4655" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="emblemGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4655"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF4655"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="avatarClip"><circle cx="24" cy="24" r="22"/></clipPath>
+    <pattern id="bgPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.5" fill="#FF4655" fill-opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <style>
+    * { font-family: 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif; }
+  </style>
+
+  <!-- Background -->
+  <rect width="450" height="260" rx="4.5" fill="#0D1117"/>
+  <rect width="450" height="260" rx="4.5" fill="url(#tierGlow)"/>
+  <rect width="450" height="260" rx="4.5" fill="url(#bgPattern)"/>
+  <rect width="450" height="260" rx="4.5" fill="none" stroke="#30363D" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Top tier accent line -->
+  <rect x="0" y="0" width="450" height="2" rx="4.5" fill="#FF4655" fill-opacity="0.6"/>
+
+  
+    <defs>
+      <linearGradient id="premiumBorder" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FF4655"/>
+        <stop offset="50%" stop-color="#FFD700"/>
+        <stop offset="100%" stop-color="#FF4655"/>
+      </linearGradient>
+      <filter id="borderGlow">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <rect width="450" height="260" rx="4.5" fill="none"
+      stroke="url(#premiumBorder)" stroke-width="2.5" filter="url(#borderGlow)"/>
+    
+    <defs>
+      <linearGradient id="premiumBorder2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FFD700"/>
+        <stop offset="50%" stop-color="#FF4655" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#FFD700"/>
+      </linearGradient>
+      <radialGradient id="challengerShine" cx="0.3" cy="0.2" r="0.8">
+        <stop offset="0%" stop-color="#FFD700" stop-opacity="0.08"/>
+        <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="450" height="260" rx="4.5" fill="url(#challengerShine)"/>
+    <rect width="450" height="260" rx="4.5" fill="none"
+      stroke="url(#premiumBorder2)" stroke-width="1" stroke-opacity="0.4" filter="url(#borderGlow)"/>
+    
+  
+
+  <!-- Avatar -->
+  <g transform="translate(18, 18)">
+    <image href="" x="2" y="2" width="44" height="44" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
+    <circle cx="24" cy="24" r="22" fill="none" stroke="#FF4655" stroke-width="2" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- User Info -->
+  <g>
+    <text x="80" y="36" font-size="15" font-weight="700" fill="#E6EDF3">GitHub User</text>
+    <text x="80" y="52" font-size="11" fill="#8B949E">@username</text>
+    <text x="80" y="68" font-size="10" font-weight="600" fill="#FF4655">Top 0.03%</text>
+    <text x="138" y="68" font-size="9" fill="#8B949E" fill-opacity="0.6">MAX RANK</text>
+  </g>
+
+  <!-- Tier Emblem -->
+  <g transform="translate(332, 18)">
+    
+    <defs>
+      <linearGradient id="glare_Challenger" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+        <stop offset="40%" stop-color="#fff" stop-opacity="0.4"/>
+        <stop offset="60%" stop-color="#fff" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+        <animate attributeName="x1" values="-1;2" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="0;3" dur="3s" repeatCount="indefinite"/>
+      </linearGradient>
+      <filter id="eliteGlow_Challenger" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FF4655" flood-opacity="0.6"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#FF4655" flood-opacity="0.2"/>
+      </filter>
+      <clipPath id="textClip_Challenger">
+        <rect x="0" y="10" width="100" height="50"/>
+      </clipPath>
+    </defs>
+
+    <!-- Top decoration -->
+    <path d="M24,16 L34,16 L50,6 L66,16 L76,16"
+      fill="none" stroke="#FF4655" stroke-width="1" stroke-opacity="0.5"/>
+    <path d="M46,4 L50,0 L54,4"
+      fill="#FF4655" fill-opacity="0.4"/>
+
+    
+    <path d="M42,0 L45,-5 L48,0 L50,-7 L52,0 L55,-5 L58,0"
+      fill="none" stroke="#FFD700" stroke-width="1.2" stroke-opacity="0.8"/>
+    
+
+    <!-- Tier text with glow -->
+    <text x="50" y="34" text-anchor="middle" dominant-baseline="central"
+      font-size="11" font-weight="900" letter-spacing="1.5" font-family="Segoe UI, Ubuntu, sans-serif"
+      fill="#FF4655" filter="url(#eliteGlow_Challenger)">CHALLENGER</text>
+
+    <!-- Glare sweep -->
+    <g clip-path="url(#textClip_Challenger)">
+      <text x="50" y="34" text-anchor="middle" dominant-baseline="central"
+        font-size="11" font-weight="900" letter-spacing="1.5" font-family="Segoe UI, Ubuntu, sans-serif"
+        fill="url(#glare_Challenger)">CHALLENGER</text>
+    </g>
+
+    <!-- Bottom decoration -->
+    <path d="M24,50 L34,50 L50,60 L66,50 L76,50"
+      fill="none" stroke="#FF4655" stroke-width="1" stroke-opacity="0.5"/>
+    <path d="M46,62 L50,66 L54,62"
+      fill="#FF4655" fill-opacity="0.4"/>
+
+    <!-- Side diamonds -->
+    <path d="M2,34 L6,30 L10,34 L6,38 Z" fill="#FF4655" fill-opacity="0.25"/>
+    <path d="M90,34 L94,30 L98,34 L94,38 Z" fill="#FF4655" fill-opacity="0.25"/>
+  
+  </g>
+
+  <!-- Tier Stars -->
+  <g transform="translate(332, 90)">
+    
+      <!-- Crown -->
+      <path d="M38,6 L42,-2 L46,4 L50,-4 L54,4 L58,-2 L62,6 Z"
+        fill="#FF4655" fill-opacity="0.35"/>
+      <path d="M38,6 L42,-2 L46,4 L50,-4 L54,4 L58,-2 L62,6"
+        fill="none" stroke="#FF4655" stroke-width="1" stroke-opacity="0.6"/>
+      <circle cx="50" cy="-4" r="1.5" fill="#FF4655" fill-opacity="0.6"/>
+      <circle cx="42" cy="-2" r="1" fill="#FF4655" fill-opacity="0.4"/>
+      <circle cx="58" cy="-2" r="1" fill="#FF4655" fill-opacity="0.4"/>
+    
+  </g>
+
+  <!-- Stat Bars -->
+  <g transform="translate(18, 108)">
+    
+      <g transform="translate(0, 0)">
+        <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
+          <path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/>
+        </svg>
+        <text x="20" y="8" dominant-baseline="central" font-size="11" fill="#C9D1D9">Commits</text>
+        <rect x="88" y="4" width="246" height="8" rx="4" fill="#21262D"/>
+        <rect x="88" y="4" width="244" height="8" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+        <text x="340" y="8" dominant-baseline="central" font-size="10" fill="#8B949E">5.0k</text>
+        <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">99 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
+      </g>
+    
+      <g transform="translate(0, 26)">
+        <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
+          <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+        </svg>
+        <text x="20" y="8" dominant-baseline="central" font-size="11" fill="#C9D1D9">Stars</text>
+        <rect x="88" y="4" width="246" height="8" rx="4" fill="#21262D"/>
+        <rect x="88" y="4" width="219" height="8" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+        <text x="340" y="8" dominant-baseline="central" font-size="10" fill="#8B949E">3.0k</text>
+        <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">89 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
+      </g>
+    
+      <g transform="translate(0, 52)">
+        <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
+          <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354Z"/>
+        </svg>
+        <text x="20" y="8" dominant-baseline="central" font-size="11" fill="#C9D1D9">PRs</text>
+        <rect x="88" y="4" width="246" height="8" rx="4" fill="#21262D"/>
+        <rect x="88" y="4" width="207" height="8" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+        <text x="340" y="8" dominant-baseline="central" font-size="10" fill="#8B949E">792</text>
+        <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">84 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
+      </g>
+    
+      <g transform="translate(0, 78)">
+        <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
+          <path d="M10.561 8.073a6 6 0 0 1 3.32 5.17.75.75 0 1 1-1.497.076 4.5 4.5 0 0 0-7.37-3.11.75.75 0 0 1-.994-1.124A6 6 0 0 1 8 7.5a6 6 0 0 1 2.561.573ZM8 5.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 1.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/>
+        </svg>
+        <text x="20" y="8" dominant-baseline="central" font-size="11" fill="#C9D1D9">Followers</text>
+        <rect x="88" y="4" width="246" height="8" rx="4" fill="#21262D"/>
+        <rect x="88" y="4" width="194" height="8" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+        <text x="340" y="8" dominant-baseline="central" font-size="10" fill="#8B949E">1.5k</text>
+        <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">79 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
+      </g>
+    
+      <g transform="translate(0, 104)">
+        <svg x="0" y="1" width="14" height="14" viewBox="0 0 16 16" fill="#58A6FF">
+          <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"/>
+        </svg>
+        <text x="20" y="8" dominant-baseline="central" font-size="11" fill="#C9D1D9">Issues</text>
+        <rect x="88" y="4" width="246" height="8" rx="4" fill="#21262D"/>
+        <rect x="88" y="4" width="170" height="8" rx="4" fill="url(#barGrad)" opacity="0.85"/>
+        <text x="340" y="8" dominant-baseline="central" font-size="10" fill="#8B949E">396</text>
+        <text x="414" y="8" dominant-baseline="central" text-anchor="end" font-size="9" font-weight="700" fill="#58A6FF">69 <tspan fill="#8B949E" font-weight="400" font-size="7">/ 100</tspan></text>
+      </g>
+    
+  </g>
+
+  <!-- Watermark -->
+  <text x="432" y="252" text-anchor="end" font-size="8" fill="#8B949E" fill-opacity="0.4">github-tier.vercel.app</text>
+</svg>
