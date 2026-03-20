@@ -2290,15 +2290,11 @@ async function fetchContributions(username) {
   return json.data?.user?.contributionsCollection ?? null;
 }
 async function fetchTotalStars(username) {
-  const pagePromises = Array.from(
-    { length: MAX_REPOS_PAGES },
-    (_, i) => githubFetch(
-      `/users/${username}/repos?per_page=${REPOS_PER_PAGE}&page=${i + 1}&type=owner`
-    )
-  );
-  const pages = await Promise.all(pagePromises);
   let stars = 0;
-  for (const repos of pages) {
+  for (let page = 1; page <= MAX_REPOS_PAGES; page++) {
+    const repos = await githubFetch(
+      `/users/${username}/repos?per_page=${REPOS_PER_PAGE}&page=${page}&type=owner`
+    );
     if (!repos || repos.length === 0) break;
     for (const repo of repos) {
       stars += repo.stargazers_count ?? 0;
