@@ -147,63 +147,88 @@ score = weighted_sum(
 
 > 📖 The scoring model is inspired by [github-readme-stats](https://github.com/anuraghazra/github-readme-stats), adapted with different weights and CDF normalization for the tier system.
 
-## 🚀 Deploy Your Own
+## 🚀 Deploy Your Own (Recommended)
 
-You can host your own instance for better performance and custom configuration.
+Since the public endpoint shares API rate limits across all users, we recommend self-hosting for reliability. You can choose between **Vercel deployment** (easiest) or **local development**.
+
+### 🔑 Step 1: Get Your Personal Access Token (PAT)
+
+You'll need a GitHub PAT to fetch contribution data (including private repos).
 
 <details>
-<summary><b>📋 Step-by-step guide</b></summary>
+<summary><b>Classic Token</b></summary>
 
-### 1. Fork this repo
+1. Go to **Settings** → **Developer Settings** → **Personal access tokens** → **[Tokens (classic)](https://github.com/settings/tokens)**
+2. Click **"Generate new token"** → **"Generate new token (classic)"**
+3. Select scope: `read:user`
+4. Click **Generate token** and copy it
 
-Click the "Fork" button at the top right of this page.
+</details>
 
-### 2. Create a GitHub Personal Access Token
+<details>
+<summary><b>Fine-grained Token</b></summary>
 
-1. Go to [github.com/settings/tokens](https://github.com/settings/tokens)
-2. Click **"Generate new token (classic)"**
-3. Select the `read:user` scope
-4. Copy the generated token
+1. Go to **Settings** → **Developer Settings** → **Personal access tokens** → **[Fine-grained tokens](https://github.com/settings/personal-access-tokens/new)**
+2. Set an expiration date
+3. Select **All repositories**
+4. Under **Account permissions**, select **read-only** access
+5. Click **Generate token** and copy it
 
-### 3. Deploy to Vercel
+</details>
+
+### ☁️ Option A: Deploy on Vercel
+
+The easiest way. One click and you're done.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/chahyunwoo/github-tier&env=GITHUB_TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20with%20read:user%20scope)
 
-When prompted, paste your `GITHUB_TOKEN` as an environment variable.
+1. Click the button above
+2. Paste your `GITHUB_TOKEN` when prompted
+3. Done! Your instance is live at `https://your-project.vercel.app/api/tier?user=USERNAME`
 
-### 4. Done! 🎉
+> ⚠️ Remember to **redeploy** after changing environment variables.
 
-Your instance is live at:
-```
-https://your-project.vercel.app/api/tier?user=USERNAME
-```
-
-</details>
-
-<details>
-<summary><b>💻 Run locally</b></summary>
+### 💻 Option B: Run Locally
 
 ```bash
-# Clone
+# 1. Clone
 git clone https://github.com/chahyunwoo/github-tier.git
 cd github-tier
 
-# Install
+# 2. Install dependencies
 pnpm install
 
-# Set up token
+# 3. Set up environment
 cp .env.example .env.local
-# Edit .env.local and add your GITHUB_TOKEN
+# Edit .env.local and add: GITHUB_TOKEN=ghp_your_token
 
-# Run dev server
+# 4. Start dev server
 pnpm dev
+
+# 5. Open in browser
+open http://localhost:3333/api/tier?user=YOUR_USERNAME
 ```
 
-Open `http://localhost:3333/api/tier?user=YOUR_USERNAME`
+### ⚙️ Environment Variables
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for full development guide.
+| Name | Description | Required |
+|------|-------------|----------|
+| `GITHUB_TOKEN` | GitHub Personal Access Token with `read:user` scope. Required for private contribution data and higher API rate limits. | Yes |
 
-</details>
+> 💡 Without a token, the API falls back to public data only and is subject to GitHub's unauthenticated rate limit (60 requests/hour).
+
+### 📌 Quick Tip: Combine with Other Cards
+
+You can align GitHub Tier with other profile cards side by side:
+
+```html
+<a href="https://github.com/chahyunwoo/github-tier">
+  <img height="200" src="https://github-tier.vercel.app/api/tier?user=YOUR_USERNAME" />
+</a>
+<a href="https://github.com/anuraghazra/github-readme-stats">
+  <img height="200" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
+</a>
+```
 
 ## ❓ FAQ
 
