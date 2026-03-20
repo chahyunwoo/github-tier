@@ -2770,12 +2770,12 @@ async function tierHandler(c) {
 var app = new Hono2();
 app.get("/api/tier", tierHandler);
 
-// api/index.ts
+// src/entry-edge.ts
 var config = {
   runtime: "edge"
 };
-var index_default = handle(app);
+var entry_edge_default = handle(app);
 export {
   config,
-  index_default as default
+  entry_edge_default as default
 };

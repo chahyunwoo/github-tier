@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.11",
+    "esbuild": "^0.27.4",
     "hono": "^4.7.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "esbuild": "^0.27.4",
     "tsx": "^4.19.0",
     "typescript": "^5.9.0",
     "vercel": "^41.0.0"
