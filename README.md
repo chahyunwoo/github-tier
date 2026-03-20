@@ -79,11 +79,11 @@
   </tr>
   <tr>
     <td align="center"><img src="assets/examples/master.svg" width="400"/><br/><b>🟣 Master</b></td>
-    <td align="center"><img src="assets/examples/diamond.svg" width="400"/><br/><b>🔵 Diamond</b></td>
+    <td align="center"><img src="assets/examples/diamond.svg" width="400"/><br/><b>💠 Diamond</b></td>
   </tr>
   <tr>
     <td align="center"><img src="assets/examples/emerald.svg" width="400"/><br/><b>🟢 Emerald</b></td>
-    <td align="center"><img src="assets/examples/platinum.svg" width="400"/><br/><b>🩵 Platinum</b></td>
+    <td align="center"><img src="assets/examples/platinum.svg" width="400"/><br/><b>🔷 Platinum</b></td>
   </tr>
   <tr>
     <td align="center"><img src="assets/examples/gold.svg" width="400"/><br/><b>🟡 Gold</b></td>
