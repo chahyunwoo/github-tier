@@ -9,45 +9,26 @@ function calculatePercentileRank(score: number): number {
     [98, 100, 0.01, 0.05],
     [95, 97, 0.05, 0.3],
     [90, 94, 0.3, 1],
-    [87, 89, 1, 1.5],
-    [84, 86, 1.5, 2],
-    [82, 83, 2, 3],
-    [80, 81, 3, 4],
-    [76, 79, 4, 6],
-    [72, 75, 6, 8],
-    [68, 71, 8, 11],
-    [65, 67, 11, 14],
-    [61, 64, 14, 18],
-    [57, 60, 18, 22],
-    [54, 56, 22, 27],
-    [50, 53, 27, 32],
-    [46, 49, 32, 38],
-    [42, 45, 38, 44],
-    [39, 41, 44, 50],
-    [35, 38, 50, 55],
-    [31, 34, 55, 62],
-    [27, 30, 62, 68],
-    [24, 26, 68, 73],
-    [20, 23, 73, 78],
-    [17, 19, 78, 82],
-    [14, 16, 82, 86],
-    [11, 13, 86, 89],
-    [8, 10, 89, 92],
-    [6, 7, 92, 94],
-    [4, 5, 94, 96],
-    [2, 3, 96, 98],
-    [0, 1, 98, 99],
+    [80, 89, 1, 5],
+    [65, 79, 5, 15],
+    [50, 64, 15, 30],
+    [35, 49, 30, 55],
+    [20, 34, 55, 80],
+    [8, 19, 80, 95],
+    [0, 7, 95, 100],
   ];
 
   for (const [min, max, topStart, topEnd] of mapping) {
     if (score >= min && score <= max) {
       const ratio = max === min ? 0 : (score - min) / (max - min);
-      const result = topStart + (topEnd - topStart) * (1 - ratio);
-      return Math.round(result * 10) / 10;
+      const result = topEnd + (topStart - topEnd) * ratio;
+      if (result < 0.1) return Math.round(result * 100) / 100;
+      if (result < 1) return Math.round(result * 10) / 10;
+      return Math.round(result);
     }
   }
 
-  return 99;
+  return 100;
 }
 
 function buildTierInfo(name: string, division: string | null, score: number, color: string, gradient: readonly [string, string]): TierInfo {

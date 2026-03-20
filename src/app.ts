@@ -1,9 +1,8 @@
 import { Hono } from "hono";
-import { tierHandler } from "./routes";
+import { tierHandler, previewHandler, testPage } from "./routes";
 
 export const app = new Hono();
 
 app.get("/api/tier", tierHandler);
-app.get("/tier", tierHandler);
-app.get("/", tierHandler);
-app.all("*", tierHandler);
+app.get("/api/preview", previewHandler);
+app.get("/test", testPage);

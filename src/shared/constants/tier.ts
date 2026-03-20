@@ -17,10 +17,10 @@ export const TIER_THRESHOLDS: readonly TierThreshold[] = [
   { name: "Master", division: null, minScore: 90, color: "#9B59B6", gradient: ["#9B59B6", "#C39BD3"] },
 
   // Diamond (80~89)
-  { name: "Diamond", division: "I", minScore: 87, color: "#4FC3F7", gradient: ["#4FC3F7", "#81D4FA"] },
-  { name: "Diamond", division: "II", minScore: 84, color: "#4FC3F7", gradient: ["#4FC3F7", "#81D4FA"] },
-  { name: "Diamond", division: "III", minScore: 82, color: "#4FC3F7", gradient: ["#4FC3F7", "#81D4FA"] },
-  { name: "Diamond", division: "IV", minScore: 80, color: "#4FC3F7", gradient: ["#4FC3F7", "#81D4FA"] },
+  { name: "Diamond", division: "I", minScore: 87, color: "#68B8F8", gradient: ["#5B9BF0", "#A78BFA"] },
+  { name: "Diamond", division: "II", minScore: 84, color: "#68B8F8", gradient: ["#5B9BF0", "#A78BFA"] },
+  { name: "Diamond", division: "III", minScore: 82, color: "#68B8F8", gradient: ["#5B9BF0", "#A78BFA"] },
+  { name: "Diamond", division: "IV", minScore: 80, color: "#68B8F8", gradient: ["#5B9BF0", "#A78BFA"] },
 
   // Emerald (65~79)
   { name: "Emerald", division: "I", minScore: 76, color: "#2ECC71", gradient: ["#27AE60", "#2ECC71"] },
