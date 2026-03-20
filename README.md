@@ -105,15 +105,15 @@ Add `&theme=THEME_NAME` to your URL:
 
 | Theme | Preview |
 |-------|---------|
-| `dark` (default) | ![dark](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=dark) |
-| `tokyonight` | ![tokyonight](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=tokyonight) |
-| `dracula` | ![dracula](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=dracula) |
-| `nord` | ![nord](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=nord) |
-| `gruvbox` | ![gruvbox](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=gruvbox) |
-| `catppuccin` | ![catppuccin](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=catppuccin) |
-| `onedark` | ![onedark](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=onedark) |
-| `radical` | ![radical](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=radical) |
-| `light` | ![light](https://github-tier.vercel.app/api/tier?user=chahyunwoo&theme=light) |
+| `dark` (default) | ![dark](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=dark) |
+| `tokyonight` | ![tokyonight](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=tokyonight) |
+| `dracula` | ![dracula](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=dracula) |
+| `nord` | ![nord](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=nord) |
+| `gruvbox` | ![gruvbox](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=gruvbox) |
+| `catppuccin` | ![catppuccin](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=catppuccin) |
+| `onedark` | ![onedark](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=onedark) |
+| `radical` | ![radical](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=radical) |
+| `light` | ![light](https://github-tier.vercel.app/api/tier?user=chahyunwoo&v=4&theme=light) |
 
 > 💡 Want a custom theme? [Open an issue](https://github.com/chahyunwoo/github-tier/issues) or submit a PR!
 
