@@ -8,6 +8,7 @@ await build({
   format: "cjs",
   target: "node18",
   platform: "node",
+  external: ["http", "https", "url", "stream", "buffer", "net", "tls", "crypto", "zlib", "events", "path", "fs", "os", "util"],
   alias: {
     "@/shared": resolve("src/shared"),
     "@/features": resolve("src/features"),
